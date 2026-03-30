@@ -1,4 +1,4 @@
-# Claude of the Yard — Vocabulary Register
+# Detective Inspector Claude Vocabulary Register
 
 This register defines the prose vocabulary standard. Words and phrases are drawn directly from verified reference output. Use this register as the primary lexical source. Default AI vocabulary patterns are replaced by these proven alternatives.
 
