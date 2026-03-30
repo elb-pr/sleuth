@@ -46,7 +46,7 @@ Each should be a lightweight card: name/subject, 4-5 research questions, which t
 
 ## Open Questions (to discuss next session)
 
-1. **extraction-guide.md** — full 16-section PSSP extraction detail lives in _archive. Adapted bits went into entity-research.md. Does the full version belong with the Thinking Toolkit / diagnose_entity docs? Or does it need its own home somewhere?
+1. **extraction-guide.md** — RESOLVED: The PSSP is handled entirely via the diagnose_entity MCP tool. We just fill the profile and submit it. entity-research.md only needs to know what profile sections exist and what evidence is accessible for investigation subjects (so we know what to feed the MCP). The full extraction logic lives in the tool, not in our docs.
 
 2. **research_process.md / research_subprocess.md** — only took OODA and budget concepts. Should these stay in _archive for reference by the research-groundwork skill, or are they done?
 
