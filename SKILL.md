@@ -1,5 +1,5 @@
 ---
-name: dci-claudian-of-the-yard 
+name: detective-inspector-claude
 description: Use when investigating UK drill crime cases for episode production. This skill handles the upstream investigative pipeline exclusively scanning sources, building case files, verifying evidence, and producing structured briefs. Script production routes to claudian-of-the-yard.
 ---
 
