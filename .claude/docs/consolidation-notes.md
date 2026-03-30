@@ -41,3 +41,19 @@ Based on what the references now support, these domain templates should exist:
 entity, gang, family, friend, location/territory, incident/event, music/media, timeline, psychology, socio-economics, cultural-background, historical-context
 
 Each should be a lightweight card: name/subject, 4-5 research questions, which tools to run, output format.
+
+---
+
+## Open Questions (to discuss next session)
+
+1. **extraction-guide.md** — full 16-section PSSP extraction detail lives in _archive. Adapted bits went into entity-research.md. Does the full version belong with the Thinking Toolkit / diagnose_entity docs? Or does it need its own home somewhere?
+
+2. **research_process.md / research_subprocess.md** — only took OODA and budget concepts. Should these stay in _archive for reference by the research-groundwork skill, or are they done?
+
+3. **ai-research-handbook-blueprint.md** — the 4-tier/8-part CLES framework is embedded in methodology.md structurally but not explicitly cited. Is that enough or do we want it more visible?
+
+4. **The plan file needs rewriting** — it still has state machine language from the earlier drafts. Should be stripped back to match what we actually agreed: folders are organised knowledge, methodology.md is a structured guide, no formal transitions, no routing, investigation is conversational.
+
+5. **SKILL.md itself** — needs to lean harder into Claude as an actual investigative journalist. Always questioning, always suspicious. Not just a research helper. This is a separate task but worth scoping.
+
+6. **diagnose_entity integration** — how does entity-research.md's PSSP mapping connect to the new Thinking Toolkit diagnose_entity tool in practice? The tooling.md references it but the workflow between them needs thinking through.
