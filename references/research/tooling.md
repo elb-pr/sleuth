@@ -84,11 +84,21 @@ instaloader --no-videos --no-video-thumbnails [profile_name]
 
 **Key tools:**
 - `diagnose` - describe what you are stuck on, get routed to a thinking technique
-- `diagnose_entity` - submit a partially populated cognitive surrogate profile, get targeted investigative questions routed to thinking techniques
 - `get_technique` - load a specific thinking technique by ID
 - `list_techniques` - see all 12 available techniques
 
-**Use when:** Stuck on a research direction. When a cognitive surrogate profile has gaps and you need to know what to investigate next. The `diagnose_entity` tool reads the profile state and generates questions that tell you where to look and how to think about what you find.
+**Use when:** Stuck on a research direction or reasoning problem. Need structured thinking about what evidence means.
+
+### Pigeon Superstition Superposition MCP (PSSP)
+**Server:** `https://server.smithery.ai/elbpr/pigeon-superstition-superposition`
+
+**Key tools:**
+- `assess` - submit profile state and available evidence, get routed to the right profiling framework with full methodology
+- `get_framework` - load a specific profiling framework by ID (16 frameworks for 16 profile sections)
+- `list_frameworks` - see all 16 available frameworks
+- `get_profiling_toolkit` - load the master profiling system router
+
+**Use when:** Building a cognitive surrogate profile of an investigation subject. The `assess` tool reads your profile state and tells you which section to advance next and how to do it from documentary evidence.
 
 ### Notion MCP
 **Server:** `https://mcp.notion.com/mcp`

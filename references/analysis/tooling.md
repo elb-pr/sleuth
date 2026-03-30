@@ -43,10 +43,18 @@ Microsoft tool for converting files to markdown. Supports 15+ formats including 
 
 **Key tools:**
 - `diagnose` — when stuck on analytical direction
-- `diagnose_entity` — when a cognitive surrogate profile needs gap analysis
 - `get_technique` — load specific thinking technique for analytical reasoning
 
 **Use when:** Analysis reveals contradictions, unexpected patterns, or you need structured reasoning about what the data shows.
+
+### Pigeon Superstition Superposition MCP (PSSP)
+**Server:** `https://server.smithery.ai/elbpr/pigeon-superstition-superposition`
+
+**Key tools:**
+- `assess` — submit profile state, get routed to the right profiling framework
+- `get_framework` — load specific profiling framework methodology
+
+**Use when:** Analysis produces behavioural or psychological data that should feed a cognitive surrogate profile. Network patterns, communication analysis, or behavioural defaults visible in data.
 
 ### Notion MCP
 **Server:** `https://mcp.notion.com/mcp`

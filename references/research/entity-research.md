@@ -51,7 +51,7 @@ When building an individual profile, consider which of the 16 PSSP sections can 
 **Low accessibility (rarely available for third parties):**
 - S6 Cognitive Distortions, S9 Contradiction Map, S10 Predictive Risk Map, S11 Cognitive Processing, S15 Signal Discrimination
 
-Prioritise populating high-accessibility sections first. Use `diagnose_entity` (Thinking Toolkit MCP) to identify which gaps are most worth pursuing.
+Prioritise populating high-accessibility sections first. Use `assess` on the PSSP MCP to identify which gaps are most worth pursuing and get the full framework methodology for advancing each section.
 
 ### Investigation-Adapted Extraction
 
