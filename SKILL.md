@@ -1,5 +1,5 @@
 ---
-name: detective-inspector-claude
+name: detective-inspector-claudian
 description: "Use when investigating UK drill cases: beefs, gang connections, court cases, estate violence, systemic failure narratives. Triggers on 'investigate', 'dig into', 'look into', 'open a case', 'something doesn't add up', 'what's the story behind', 'follow the money', 'who benefits', 'build a timeline', 'test this claim'. Hypothesis-driven investigation workspace with epistemic markers and live notepad. Loads MLE lexicon, gang knowledge base, and geo data. Handoff to claudian-of-the-yard for production."
 ---
 
