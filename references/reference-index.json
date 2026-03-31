@@ -47,11 +47,13 @@
         "folder": "findis",
         "title": "Final Reporting & Dissemination",
         "file": "report-disseminate.md",
-        "templates_used": ["working/briefing.md", "working/case-summary.md", "working/findings-memo.md", "working/nim.md", "working/aa-report.md"],
+        "templates_used": ["working/briefing.md", "working/case-summary.md", "working/findings-memo.md", "working/nim.md", "working/report.md"],
         "intelligence_cycle_stage": "Dissemination"
       }
     ]
   },
   "root_documents": {
     "guidance.md": "15-step investigation workflow mapping phases to templates",
+    "tooling.md": "150+ OSINT tools and data sources inventory across nine investigation domains"
+  }
 }
