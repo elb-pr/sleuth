@@ -1,1 +1,36 @@
-{"entities": []}
+{
+  "entities": [],
+  "schema": {
+    "id": "P0001 (person), O0001 (organisation), L0001 (location), E0001 (event) — prefix by POLE type",
+    "type": "person | organisation | location | event | object",
+    "name": "Primary name or title",
+    "aliases": ["Alternative names, trading names, maiden names"],
+    "identifiers": {
+      "passport": "",
+      "national_id": "",
+      "company_number": "",
+      "lei": "",
+      "duns": "",
+      "tax_id": "",
+      "custom": {}
+    },
+    "attributes": {
+      "birth_date": "YYYY-MM-DD or partial",
+      "birth_place": "",
+      "nationality": [],
+      "gender": "",
+      "address": "",
+      "jurisdiction": "",
+      "incorporation_date": "",
+      "status": ""
+    },
+    "source": "Primary source of this record",
+    "source_grade": "Admiralty 6x6 grade (e.g. A1)",
+    "evidence_refs": ["Evidence register references"],
+    "analyst": "Who created or last modified this record",
+    "notes": "",
+    "created_utc": "ISO 8601",
+    "modified_utc": "ISO 8601"
+  },
+  "last_modified": null
+}

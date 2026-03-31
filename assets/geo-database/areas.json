@@ -1,0 +1,27 @@
+{
+  "areas": [],
+  "schema": {
+    "id": "A0001 — auto-generated sequential ID",
+    "label": "Human-readable label (e.g. 'Subject Alpha residential zone')",
+    "type": "residence | workplace | transit | meeting_point | jurisdiction | custom",
+    "entity_refs": ["Entity IDs associated with this area"],
+    "centre": {
+      "latitude": 0.0,
+      "longitude": 0.0
+    },
+    "radius_m": null,
+    "boundary_geojson": null,
+    "jurisdiction": {
+      "country": "",
+      "region": "",
+      "legal_framework": "Which legal regime applies (e.g. UK GDPR, US FOIA)"
+    },
+    "significance": "Why this area matters to the investigation",
+    "source": "How this area was identified",
+    "source_grade": "Admiralty 6x6 grade",
+    "evidence_ref": "Reference to evidence-register entry",
+    "created_utc": "ISO 8601",
+    "modified_utc": "ISO 8601"
+  },
+  "last_modified": null
+}

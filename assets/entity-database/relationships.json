@@ -1,1 +1,23 @@
-{"relationships": []}
+{
+  "relationships": [],
+  "schema": {
+    "id": "R0001 — auto-generated sequential ID",
+    "source": "Entity ID of the source node (e.g. P0001)",
+    "target": "Entity ID of the target node (e.g. O0003)",
+    "type": "director_of | shareholder_of | employee_of | related_to | communicated_with | owned_by | associated_with | located_at | attended | funded_by | custom",
+    "direction": "directed | undirected",
+    "attributes": {
+      "role": "Specific role if applicable (e.g. 'Non-executive Director')",
+      "start_date": "YYYY-MM-DD — when the relationship began",
+      "end_date": "YYYY-MM-DD — when it ended (null if current)",
+      "weight": 1.0,
+      "confidence": 0.0
+    },
+    "source_intel": "How this relationship was discovered",
+    "source_grade": "Admiralty 6x6 grade",
+    "evidence_refs": ["Evidence register references supporting this link"],
+    "notes": "",
+    "created_utc": "ISO 8601"
+  },
+  "last_modified": null
+}

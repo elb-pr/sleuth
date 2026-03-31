@@ -1,0 +1,32 @@
+{
+  "locations": [],
+  "schema": {
+    "id": "L0001 — auto-generated sequential ID",
+    "entity_ref": "Entity ID from entities.json (e.g. P0001, O0003)",
+    "label": "Human-readable label for the location point",
+    "latitude": 0.0,
+    "longitude": 0.0,
+    "altitude_m": null,
+    "accuracy_m": null,
+    "source": "How this location was obtained (EXIF, reverse geocode, manual, corporate filing, etc.)",
+    "source_grade": "Admiralty 6x6 grade (e.g. B2)",
+    "address": {
+      "formatted": "Full formatted address string",
+      "street": "",
+      "city": "",
+      "region": "",
+      "country": "",
+      "postcode": ""
+    },
+    "temporal": {
+      "observed_utc": "ISO 8601 — when the entity was at this location",
+      "collected_utc": "ISO 8601 — when this data was captured",
+      "confidence": "exact | approximate | inferred"
+    },
+    "evidence_ref": "Reference to evidence-register entry (e.g. EV-0012)",
+    "notes": "",
+    "created_utc": "ISO 8601",
+    "modified_utc": "ISO 8601"
+  },
+  "last_modified": null
+}
