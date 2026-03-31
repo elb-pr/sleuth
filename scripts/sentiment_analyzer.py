@@ -26,16 +26,58 @@ except LookupError:
 
 class SentimentAnalyzer:
     """
-    Comprehensive sentiment analysis toolkit.
+    Sentiment analysis toolkit adapted for UK drill investigation.
 
-    Provides traditional VADER sentiment analysis and preparation
-    for LLM-enhanced sentiment analysis.
+    Standard VADER misclassifies drill content: bravado reads as positive,
+    grief mixed with revenge reads as neutral. This adds drill-specific
+    emotional categories and VADER lexicon corrections for MLE terms.
     """
 
+    # VADER lexicon updates for MLE terms.
+    # Default VADER has no entries for these, so they score 0 (neutral).
+    # We assign valence scores: -4 to +4 scale.
+    DRILL_LEXICON_UPDATES = {
+        # Violence (strongly negative valence)
+        "bore": -3.0, "bored": -3.0, "kweng": -3.5, "splash": -3.0,
+        "chef": -2.5, "cheffed": -3.0, "dip": -2.5, "corn": -2.0,
+        "wap": -2.5, "mash": -2.0, "shank": -3.0, "rambo": -2.5,
+        # Threat
+        "lacking": -2.0, "spin": -2.5, "slide": -2.0, "ride": -1.5,
+        "crash": -2.0, "grip": -2.0, "drop": -1.5,
+        # Grief/loss
+        "rip": -2.0, "rest up": -1.5, "gone": -1.5, "fly high": -1.0,
+        # Bravado (neutral to slightly negative -- not genuinely positive)
+        "scorer": -0.5, "driller": -1.0, "on job": -1.0, "active": -0.5,
+        "oj": -0.5, "gm": -0.5,
+        # Disrespect
+        "diss": -2.0, "pack": -2.5, "smoking": -2.0, "dead": -3.0,
+        # Loyalty (genuinely positive in context)
+        "bro": 1.0, "my g": 1.5, "gang": 0.5, "ride or die": 1.0,
+        # Drugs (negative valence for investigation)
+        "food": -1.0, "trap": -1.5, "bando": -1.5, "line": -1.0,
+        "county": -1.5,
+    }
+
+    # Drill-specific emotional categories beyond pos/neg/neutral
+    DRILL_EMOTIONS = {
+        "threat": {"bore", "bored", "kweng", "splash", "spin", "slide", "ride",
+                   "lacking", "crash", "grip", "catch", "drop", "wap", "mash"},
+        "grief": {"rip", "rest up", "fly high", "gone", "miss", "lost", "angel",
+                  "heaven", "watching", "looking down"},
+        "bravado": {"scorer", "driller", "active", "on job", "oj", "gm", "crash",
+                    "no lack", "too cold", "demon", "militant"},
+        "disrespect": {"diss", "pack", "smoking", "dead", "mocking", "laughing",
+                       "clown", "neek", "pussy"},
+        "loyalty": {"bro", "my g", "gang", "ride or die", "day one", "solid",
+                    "real", "hold it down", "my bruddah"},
+    }
+
     def __init__(self):
-        """Initialize the SentimentAnalyzer."""
-        # Initialize VADER sentiment analyzer
+        """Initialise the SentimentAnalyzer with drill-adapted VADER."""
         self.vader_analyzer = SentimentIntensityAnalyzer()
+
+        # Inject drill lexicon into VADER
+        self.vader_analyzer.lexicon.update(self.DRILL_LEXICON_UPDATES)
 
         # Sentiment labels
         self.sentiment_labels = {
@@ -52,6 +94,23 @@ class SentimentAnalyzer:
             'negative': 'Negative',
             'very_negative': 'Very Negative'
         }
+
+    def classify_drill_emotions(self, text: str) -> dict[str, float]:
+        """
+        Classify drill-specific emotions in text.
+
+        Returns dict of {emotion: intensity} where intensity is 0.0-1.0
+        based on keyword density.
+        """
+        words = set(text.lower().split())
+        total = max(len(words), 1)
+        scores = {}
+
+        for emotion, keywords in self.DRILL_EMOTIONS.items():
+            hits = len(words & keywords)
+            scores[emotion] = round(hits / total, 4)
+
+        return scores
 
     def analyze_sentiment_vader(self, text: str) -> Dict[str, float]:
         """
