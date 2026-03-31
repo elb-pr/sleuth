@@ -2,8 +2,8 @@
 """
 Batch convert multiple files to Markdown using MarkItDown.
 
-This script demonstrates how to efficiently convert multiple files
-in a directory to Markdown format.
+Converts evidence documents (PDFs, Word files, PowerPoint) in bulk
+for ingestion into the investigation workspace.
 """
 
 import argparse
@@ -225,4 +225,3 @@ Examples:
 
 if __name__ == '__main__':
     main()
-
