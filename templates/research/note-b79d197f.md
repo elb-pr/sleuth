@@ -1,8 +1,4 @@
-[title]:
-
-
-[note]:
-Source & Credibility Grader: The Admiralty 6x6 Standard for Intelligence Integrity
+# Source & Credibility Grader: The Admiralty 6x6 Standard for Intelligence Integrity
 
 1. The Strategic Mandate for Source Grading
 
