@@ -30,5 +30,3 @@ To maintain professional rigor, the following standards are enforced:
 *   **Traceability:** Every link on a chart and every entry on a timeline must be traceable back to a specific intelligence report or evidence artifact.
 *   **Timezone Normalization:** All system logs and manual entries must be mathematically sound and normalized to UTC before analysis.
 *   **Legend and Documentation:** Every visualization must include a legend defining node shapes, line styles, and the temporal scope of the data.
-
-Would you like to continue to Phase 5 to explore how these chronological and relational patterns are tested against Mutually Exclusive Hypotheses to eliminate cognitive bias?
