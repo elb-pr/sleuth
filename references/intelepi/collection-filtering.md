@@ -60,4 +60,3 @@ Parallel to the evidence itself, investigators maintain a **Source Register** th
 *   **Update to the Intelligence Collection Plan (ICP):** As gaps are filled or new leads emerge, the ICP from Phase 1 is updated to reflect new priorities.
 *   **Chain of Custody Audit:** Periodic verification that all items in the Evidence Register have valid hash values and secure storage locations.
 
-Would you like me to detail how the **Entity Register** and **POLE schemas** are utilized in Phase 3 to begin the resolution of these raw, vetted data points into structured profiles?
