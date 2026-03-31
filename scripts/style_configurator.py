@@ -3,14 +3,14 @@
 Matplotlib Style Configurator
 
 Interactive utility to configure matplotlib style preferences and generate
-custom style sheets. Creates a preview of the style and optionally saves
-it as a .mplstyle file.
+custom style sheets. Includes an 'investigation' preset with dark theme
+colours keyed to epistemic markers and evidence quality levels.
 
 Usage:
     python style_configurator.py [--preset PRESET] [--output FILE] [--preview]
 
 Presets:
-    publication, presentation, web, dark, minimal
+    publication, presentation, web, dark, minimal, investigation
 """
 
 import numpy as np
@@ -107,7 +107,37 @@ STYLE_PRESETS = {
         'axes.axisbelow': True,
         'lines.linewidth': 2.5,
         'font.size': 12,
-    }
+    },
+    'investigation': {
+        'figure.figsize': (14, 8),
+        'figure.dpi': 100,
+        'savefig.dpi': 300,
+        'savefig.bbox': 'tight',
+        'figure.facecolor': '#0d1117',
+        'figure.edgecolor': '#0d1117',
+        'axes.facecolor': '#161b22',
+        'axes.edgecolor': '#30363d',
+        'axes.labelcolor': '#c9d1d9',
+        'axes.titlesize': 14,
+        'axes.labelsize': 11,
+        'text.color': '#c9d1d9',
+        'xtick.color': '#8b949e',
+        'ytick.color': '#8b949e',
+        'xtick.labelsize': 9,
+        'ytick.labelsize': 9,
+        'grid.color': '#21262d',
+        'grid.alpha': 0.5,
+        'axes.grid': True,
+        'axes.spines.top': False,
+        'axes.spines.right': False,
+        'lines.linewidth': 2,
+        'lines.markersize': 6,
+        'legend.facecolor': '#161b22',
+        'legend.edgecolor': '#30363d',
+        'legend.fontsize': 9,
+        'font.family': 'monospace',
+        'savefig.facecolor': '#0d1117',
+    },
 }
 
 
