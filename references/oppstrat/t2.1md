@@ -1,0 +1,41 @@
+Task 2.1, **Defining Intelligence Requirements (IRs)**, is the critical transition point where the broad strategic goals established in the initial scoping are decomposed into granular, answerable, and actionable questions. This task is executed within the **Investigation Plan / Strategy Document** and serves as the primary mechanism for preventing "over-collection"—the recording of entities or data points with no analytical relevance—which can degrade the usefulness of the database and create legal liabilities.
+
+The following is an extensive breakdown of the subtasks and procedural requirements for Task 2.1:
+
+### 1. Decomposition of Operational Goals
+The investigator must take the "Success Definitions" from Task 1.1 and break them down into a hierarchy of questions.
+*   **Strategic Intelligence Requirements:** These are high-level parameters that define the overall knowledge gaps derived from the overarching control strategy. For example, "What is the nature of the relationship between Entity A and Entity B?"
+*   **Tactical Intelligence Requirements:** These are immediate, specific questions designed to drive operational tasking. For example, "Does Entity A hold a directorship in any company registered in Jurisdiction X?"
+*   **The "Answerability" Test:** Every IR must be phrased as a specific question that can be answered with a "Yes/No," a discrete data point, or a specific narrative finding. Vague requirements (e.g., "Look into Entity A") are prohibited.
+
+### 2. Mapping IRs to Identified Knowledge Gaps
+Every Intelligence Requirement must be explicitly linked to a knowledge gap identified during the Gap Analysis in Phase 1.
+*   **Gap-to-Question Alignment:** The investigator must document exactly which gap each IR is intended to bridge. If a question does not directly serve to fill a documented gap, it is removed to ensure the investigation remains proportionate and focused.
+*   **Deriving Requirements from Control Strategies:** IRs should not be created in a vacuum; they must be derived from the broader strategic needs of the client or the legal "points to prove" required for a successful prosecution or regulatory finding.
+
+### 3. Categorization and Prioritization
+Once a list of questions is generated, they must be organized to allow for efficient resource allocation in the subsequent **Intelligence Collection Plan (ICP)**.
+*   **Thematic Grouping:** IRs are often grouped by domain, such as Identity (Who is the subject?), Professional (Where do they work?), Financial (What assets do they hold?), or Relational (Who are their associates?).
+*   **Priority Ranking:** IRs are ranked based on their "diagnosticity"—their ability to confirm or disprove competing hypotheses. High-priority IRs are those that, once answered, will have the most significant impact on the final analytical judgment.
+*   **Review and Escalation Triggers:** The investigator defines specific "triggers" where the answer to an IR may require a re-evaluation of the entire investigation's scope or priority.
+
+### 4. Integration with Entity Schemas and Ontologies
+To ensure that the data collected later can be seamlessly ingested into the **Entity Register**, the IRs must be aligned with the chosen data architecture.
+*   **Schema Alignment:** The IRs are drafted to ensure the answers will fit into the predefined schema keys, such as the **POLE** model (Person, Object, Location, Event). For example, an IR regarding a subject’s birth date is designed to populate the `Person.birthDate` field.
+*   **Defining "Diagnostic" Entities:** The investigator identifies which specific types of entities (e.g., specific bank accounts, shell companies, or communication devices) are required to answer the IRs. This prevents the collection of "orphan records" that do not contribute to the investigation's goals.
+
+### 5. Validation against the Terms of Reference (ToR)
+Before the IRs are finalized, they undergo a final check to ensure they are legally and ethically sound.
+*   **Scope Creep Mitigation:** Each IR is reviewed against the original **Terms of Reference (ToR)** and the **PLAN** framework (Proportionality, Legality, Accountability, Necessity) established in Step 1.
+*   **Purpose Limitation Check:** The investigator must certify that the data requested by the IR is limited to what is strictly necessary for the defined investigation purpose. This satisfies privacy law requirements, such as **GDPR**'s "data minimization" principle.
+
+### 6. Output: Finalized List for the Collection Plan
+The final output of Task 2.1 is a structured list of questions that serves as the "Target List" for the **Intelligence Collection Plan (ICP)**. This list includes:
+*   The unique IR reference number.
+*   The specific question to be answered.
+*   The associated knowledge gap and priority level.
+*   The required entity types and schema mappings.
+
+By the conclusion of Task 2.1, the investigator has moved from the abstract (e.g., "Investigate this gang") to the concrete (e.g., "Identify every property in Jurisdiction Y where the beneficial owner is linked to the Director of Company Z").
+
+Would you like to proceed to Task 2.2 to see how these specific Intelligence Requirements dictate the selection of "Tiered Sources" and the sequence of collection within the Intelligence Collection Plan?
