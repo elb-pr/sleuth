@@ -1,8 +1,9 @@
 """
 Text Analysis Core Functions
 
-This module provides comprehensive text preprocessing and analysis utilities
-for content analysis tasks including cleaning, tokenization, and basic NLP operations.
+Adapted for UK drill investigation. Provides text preprocessing and analysis
+with MLE (Multicultural London English) awareness. Drill slang terms are
+preserved through preprocessing rather than being stripped as noise.
 """
 
 import pandas as pd
@@ -42,21 +43,43 @@ download_nltk_data()
 
 class TextAnalyzer:
     """
-    Comprehensive text analysis toolkit.
+    Text analysis toolkit adapted for UK drill investigation.
 
-    Provides text preprocessing, cleaning, tokenization, and basic NLP analysis
-    for content analysis tasks.
+    Provides text preprocessing, cleaning, tokenization, and basic NLP analysis.
+    MLE (Multicultural London English) terms are preserved during preprocessing
+    rather than being stripped as noise, since they carry investigative meaning.
     """
 
-    def __init__(self, language='english'):
+    # MLE terms that must not be treated as stopwords or noise.
+    # These carry investigative signal in drill lyrics and social media.
+    MLE_PRESERVE = {
+        # Violence
+        "bore", "bored", "dip", "kweng", "corn", "bun", "wap", "splash",
+        "chef", "cheffed", "shank", "rambo", "mash", "ting", "poke",
+        # Territory
+        "block", "ends", "yard", "trap", "opp", "opps", "lacking",
+        # Status
+        "driller", "scorer", "rider", "crash", "crasher", "on job",
+        "active", "oj", "gm", "gms",
+        # Loyalty/disrespect
+        "diss", "lack", "spin", "slide", "pack", "grip",
+        # Drugs
+        "food", "grub", "line", "county", "bando",
+        # Death/prison
+        "rip", "free", "locked", "pen", "bird",
+    }
+
+    def __init__(self, language='english', preserve_mle=True):
         """
-        Initialize the TextAnalyzer.
+        Initialise the TextAnalyzer.
 
         Args:
             language: Language for stopwords and processing (default: 'english')
+            preserve_mle: If True, MLE terms are excluded from stopwords
         """
         self.language = language
         self.lemmatizer = WordNetLemmatizer()
+        self.preserve_mle = preserve_mle
 
         # Load stopwords for specified language
         try:
@@ -68,6 +91,10 @@ class TextAnalyzer:
         # Add custom stopwords
         custom_stopwords = {'http', 'https', 'www', 'com', 'org', 'net'}
         self.stop_words.update(custom_stopwords)
+
+        # Remove MLE terms from stopwords so they survive preprocessing
+        if preserve_mle:
+            self.stop_words -= self.MLE_PRESERVE
 
     def clean_text(self, text: str,
                    remove_urls: bool = True,

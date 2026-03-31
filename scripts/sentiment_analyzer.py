@@ -1,8 +1,11 @@
 """
 Sentiment Analysis Tools
 
-This module provides comprehensive sentiment analysis capabilities using both
-traditional NLP methods (VADER) and LLM-enhanced analysis for nuanced emotion detection.
+Adapted for UK drill investigation. Provides VADER-based sentiment analysis
+plus drill-specific emotional categories: threat, grief, bravado, loyalty,
+and disrespect. These map to investigative signals that standard sentiment
+analysis misclassifies (e.g. VADER reads bravado as positive when it's
+actually threat-signalling).
 """
 
 import pandas as pd

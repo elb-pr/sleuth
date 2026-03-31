@@ -3,10 +3,13 @@
 YouTube Autocomplete Miner
 
 Systematically extracts keyword suggestions from YouTube's autocomplete API.
-Use for discovering long-tail keywords and understanding real search patterns.
+Adapted for UK drill investigation: discovers search patterns around artists,
+gangs, incidents, and areas. Use for mapping the public search landscape
+around investigation subjects.
 
 Usage:
-    python autocomplete_mine.py "Drake Type Beat" --depth 2 --output keywords.json
+    python autocomplete_mine.py "Active Gxng" --depth 2 --output keywords.json
+    python autocomplete_mine.py "Brixton drill" --depth 1 --format grouped
 """
 
 import argparse
@@ -118,14 +121,24 @@ def mine_keyword_tree(
     # Alphabet soup: a-z, 0-9
     suffixes = list("abcdefghijklmnopqrstuvwxyz0123456789")
     
-    # Additional type beat specific suffixes
-    type_beat_suffixes = [
+    # Drill investigation suffixes
+    drill_suffixes = [
+        # Temporal
         "2024", "2025", "2026",
-        "free", "hard", "dark", "sad", "emotional",
-        "melodic", "aggressive", "chill"
+        # Content types
+        "freestyle", "music video", "plugged in", "mad about bars",
+        "block session", "next up", "daily duppy", "behind barz",
+        # Mood/style
+        "hard", "dark", "aggressive", "cold", "raw",
+        # Investigation relevant
+        "beef", "opps", "diss", "rip", "tribute", "court",
+        "banned", "injunction", "arrested", "prison",
+        # Area qualifiers
+        "london", "birmingham", "manchester", "liverpool",
+        "south london", "north london", "east london", "west london",
     ]
-    
-    all_suffixes = suffixes + type_beat_suffixes
+
+    all_suffixes = suffixes + drill_suffixes
     
     for current_depth in range(1, depth + 1):
         print(f"Mining depth {current_depth}...")
@@ -162,7 +175,9 @@ def analyse_results(results: list[KeywordResult]) -> dict:
         "artist_mentions": [],
         "year_mentions": [],
         "mood_descriptors": [],
-        "genre_descriptors": []
+        "genre_descriptors": [],
+        "incident_signals": [],
+        "area_mentions": [],
     }
     
     # Count by depth
@@ -171,9 +186,14 @@ def analyse_results(results: list[KeywordResult]) -> dict:
         analysis["by_depth"][depth_key] = analysis["by_depth"].get(depth_key, 0) + 1
     
     # Categorise keywords
-    moods = ["dark", "sad", "emotional", "happy", "chill", "aggressive", "hard", "melodic", "evil"]
-    genres = ["drill", "trap", "r&b", "rnb", "jazz", "lofi", "lo-fi", "rage", "sample"]
+    moods = ["dark", "sad", "emotional", "cold", "aggressive", "hard", "raw", "evil"]
+    genres = ["drill", "trap", "afro", "afroswing", "grime", "rap", "uk rap"]
     years = ["2024", "2025", "2026"]
+    incidents = ["beef", "rip", "tribute", "court", "banned", "arrested", "prison",
+                 "stabbing", "shooting", "murder", "dead", "locked", "jail", "injunction"]
+    areas = ["south london", "north london", "east london", "west london",
+             "brixton", "peckham", "hackney", "tottenham", "croydon",
+             "birmingham", "manchester", "liverpool", "nottingham", "leeds"]
     
     for r in results:
         kw_lower = r.keyword.lower()
@@ -192,6 +212,16 @@ def analyse_results(results: list[KeywordResult]) -> dict:
             if year in kw_lower:
                 if year not in analysis["year_mentions"]:
                     analysis["year_mentions"].append(year)
+
+        for signal in incidents:
+            if signal in kw_lower:
+                if signal not in analysis["incident_signals"]:
+                    analysis["incident_signals"].append(signal)
+
+        for area in areas:
+            if area in kw_lower:
+                if area not in analysis["area_mentions"]:
+                    analysis["area_mentions"].append(area)
     
     return analysis
 
@@ -297,6 +327,8 @@ def main():
     print(f"  By depth: {analysis['by_depth']}")
     print(f"  Moods found: {analysis['mood_descriptors']}")
     print(f"  Genres found: {analysis['genre_descriptors']}")
+    print(f"  Incident signals: {analysis['incident_signals']}")
+    print(f"  Areas mentioned: {analysis['area_mentions']}")
     
     export_results(results, analysis, args.output, args.format)
     print(f"\nResults exported to: {args.output}")

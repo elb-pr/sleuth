@@ -10,13 +10,23 @@ import sys
 import time
 
 PACKAGES = [
+    # Core investigation tools
     "geopandas",
     "instaloader",
     "maigret",
     "markitdown",
+    # Analysis & visualisation
     "matplotlib",
     "networkx",
-    "sherlock-project",
+    "plotly",
+    "seaborn",
+    "wordcloud",
+    # NLP & text analysis
+    "nltk",
+    "scikit-learn",
+    # Data handling
+    "pandas",
+    "numpy",
 ]
 
 def install(package: str) -> tuple[bool, int, str]:
