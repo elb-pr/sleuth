@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-dci-claudian :: imports setup
+di-claude :: imports setup
 Installs all verified pip dependencies for the scripts/imports bundle.
 Run with: python3 setup.py
 """
