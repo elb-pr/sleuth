@@ -61,5 +61,3 @@ Before Phase 1 is concluded and "Collection" begins, several administrative task
 *   **Task 3.2: Defining Terms of Reference (ToR):** Explicitly stating the legal or ethical mandate of the investigation to prevent scope creep.
 *   **Task 3.3: Supervisory Review:** In professional contexts, the initial plan must be reviewed by a supervisor or commander within 24–96 hours to certify that the strategy is sound and the justifications (PLAN/STEEPLES) are valid.
 *   **Task 3.4: Meta-Log Setup:** Configure the audit trail to mimic digital chain-of-custody requirements, ensuring that every simulated "URL visited" or "source queried" will be recorded with its associated hash values.
-
-Would you like to explore how the specific "Tiered Source Hierarchy" established in this phase dictates the "Source & Credibility Grading" used as data begins to flow in from the collection stage?
