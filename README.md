@@ -1,1 +1,1 @@
-# di-claudian. Named after Fabian of the Yard.
+# Claudian of the Yard. Named after Robert Fabian of Scotland Yard.
