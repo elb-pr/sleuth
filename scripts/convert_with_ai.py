@@ -2,8 +2,12 @@
 """
 Convert documents to Markdown with AI-enhanced image descriptions.
 
-This script demonstrates how to use MarkItDown with OpenRouter to generate
-detailed descriptions of images in documents (PowerPoint, PDFs with images, etc.)
+Uses MarkItDown with OpenRouter for image analysis within evidence documents.
+Includes investigation-specific prompts for court documents, social media
+screenshots, and map/territory images.
+
+Requires: pip install openai (not in setup.py -- uses OpenRouter, not OpenAI directly)
+Set OPENROUTER_API_KEY environment variable before use.
 """
 
 import argparse
@@ -25,7 +29,7 @@ Analyze this scientific image or diagram. Provide:
 5. Scientific context and significance
 Be precise, technical, and detailed.
     """.strip(),
-    
+
     'presentation': """
 Describe this presentation slide image. Include:
 1. Main visual elements and their arrangement
@@ -34,7 +38,7 @@ Describe this presentation slide image. Include:
 4. Visual hierarchy and emphasis
 Keep the description clear and informative.
     """.strip(),
-    
+
     'general': """
 Describe this image in detail. Include:
 1. Main subjects and objects
@@ -43,6 +47,54 @@ Describe this image in detail. Include:
 4. Notable details
 5. Overall context and purpose
 Be comprehensive and accurate.
+    """.strip(),
+
+    'evidence': """
+Analyse this image as potential investigation evidence. Provide:
+1. All visible text (transcribe exactly, noting any redactions)
+2. Individuals visible (describe, do not identify by name)
+3. Location indicators (street signs, landmarks, building features, postcodes)
+4. Timestamps or date indicators
+5. Metadata visible in the image (watermarks, platform UI elements, usernames)
+6. Anything that could establish time, place, or identity
+Be forensically precise. Note anything unclear or ambiguous.
+    """.strip(),
+
+    'court_document': """
+Analyse this court document image. Extract:
+1. Court name and jurisdiction
+2. Case number and date
+3. Defendant name(s)
+4. Charge(s) or offence(s)
+5. Sentence or outcome (if sentencing remarks)
+6. Key factual findings by the judge
+7. Any co-defendants mentioned
+Transcribe key passages exactly where legible.
+    """.strip(),
+
+    'social_media': """
+Analyse this social media screenshot. Extract:
+1. Platform (Instagram, Twitter/X, Snapchat, TikTok, etc.)
+2. Username/handle visible
+3. Post content (text, transcribed exactly)
+4. Engagement metrics (likes, comments, shares, views)
+5. Timestamp/date
+6. Any location tags or geotags
+7. Tagged accounts or mentions
+8. Story/post type (feed post, story, reel, live)
+Note any MLE/slang terms present.
+    """.strip(),
+
+    'map_territory': """
+Analyse this map or satellite image. Identify:
+1. Area/neighbourhood shown
+2. Street names visible
+3. Notable landmarks or buildings
+4. Estate names or housing blocks
+5. Boundaries or zones marked
+6. Any annotations, pins, or highlights
+7. Scale and orientation
+Relate to investigation geography where possible.
     """.strip(),
     
     'data_viz': """
@@ -237,4 +289,3 @@ Popular Models (use with --model):
 
 if __name__ == '__main__':
     main()
-
