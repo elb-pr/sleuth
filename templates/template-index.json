@@ -132,7 +132,7 @@
         "frameworks": ["NIM", "APP"]
       },
       {
-        "file": "aa-report.md",
+        "file": "report.md",
         "title": "Account Attribution Report",
         "purpose": "SOCMINT brief profiling a social media account with evidence supporting real-world identity attribution",
         "frameworks": ["Berkeley Protocol"]
