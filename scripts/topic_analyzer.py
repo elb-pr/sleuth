@@ -1,8 +1,9 @@
 """
-Topic Analysis and Modeling
+Topic Analysis and Modelling
 
-This module provides comprehensive topic analysis capabilities including
-keyword extraction, topic modeling, and semantic analysis for content insights.
+Adapted for UK drill investigation. Provides keyword extraction, topic
+modelling, and semantic analysis with drill-specific seed topics and
+MLE-aware stopword handling.
 """
 
 import pandas as pd
@@ -24,15 +25,44 @@ import warnings
 
 class TopicAnalyzer:
     """
-    Comprehensive topic analysis toolkit.
+    Topic analysis toolkit adapted for UK drill investigation.
 
-    Provides keyword extraction, topic modeling, and semantic analysis
-    for content understanding and insight generation.
+    Includes drill-specific seed topics for guided LDA, MLE-aware
+    stopword handling, and investigation-relevant topic labels.
     """
+
+    # Seed topics for guided topic modelling on drill content.
+    # Each topic is a list of terms that anchor the LDA/NMF clusters.
+    DRILL_SEED_TOPICS = {
+        "violence": ["bore", "splash", "kweng", "stab", "shoot", "shot",
+                      "corn", "wap", "mash", "shank", "attack", "wound"],
+        "territory": ["block", "ends", "estate", "postcode", "area", "yard",
+                       "turf", "zone", "manor", "strip", "lane"],
+        "drugs": ["food", "trap", "bando", "line", "county", "pack", "grub",
+                   "serve", "plug", "work", "drop"],
+        "loyalty": ["bro", "gang", "ride", "solid", "day one", "real",
+                     "family", "trust", "blood", "love"],
+        "grief": ["rip", "gone", "miss", "lost", "angel", "heaven",
+                   "watching", "fly high", "rest", "memory"],
+        "legal": ["court", "judge", "sentence", "prison", "bail", "remand",
+                   "charged", "arrested", "injunction", "curfew", "tag"],
+        "music": ["track", "freestyle", "video", "studio", "beat", "bars",
+                   "flow", "mixtape", "album", "collab", "feature"],
+        "money": ["bread", "paper", "bands", "racks", "profit", "gwop",
+                   "ps", "cake", "stacks", "bag"],
+    }
+
+    # MLE terms to preserve (not strip as stopwords)
+    MLE_PRESERVE = {
+        "bore", "bored", "dip", "kweng", "corn", "bun", "wap", "splash",
+        "chef", "shank", "block", "ends", "yard", "trap", "opp", "opps",
+        "lacking", "driller", "scorer", "active", "food", "bando", "line",
+        "pack", "grip", "spin", "slide", "rip", "free", "locked",
+    }
 
     def __init__(self, language='english'):
         """
-        Initialize the TopicAnalyzer.
+        Initialise the TopicAnalyzer.
 
         Args:
             language: Language for text processing (default: 'english')
@@ -44,12 +74,14 @@ class TopicAnalyzer:
         try:
             self.stop_words = set(stopwords.words(language))
         except OSError:
-            # Fallback to English if language not found
             self.stop_words = set(stopwords.words('english'))
 
         # Add custom stopwords
         custom_stopwords = {'http', 'https', 'www', 'com', 'org', 'net', 'also', 'said', 'say'}
         self.stop_words.update(custom_stopwords)
+
+        # Preserve MLE terms
+        self.stop_words -= self.MLE_PRESERVE
 
     def extract_keywords_tfidf(self, texts: List[str],
                              top_k: int = 10,
