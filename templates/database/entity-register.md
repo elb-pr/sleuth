@@ -1,6 +1,4 @@
-[title]:
-Investigative Entity Register: Master Template and Implementation Guide
-
+# Investigative Entity Register: Master Template and Implementation Guide
 [note]:
 Investigative Entity Register: Master Template and Implementation Guide
 
@@ -186,9 +184,3 @@ Stale Records	Mandatory "Date Observed" fields and scheduled 30/90/120-day curre
 Over-collection	Ensure all entities link directly to specific Intelligence Requirements (IRs).
 
 The Investigative Entity Register is a living architecture. As the investigation progresses, analysts must iteratively review the schema to accommodate new entity types and relationship complexities as they emerge.
-
-[list]:
-
-
-[createdAt]: Mar 31, 2026, 3:08 PM
-[updatedAt]: Mar 31, 2026, 3:08 PM

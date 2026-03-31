@@ -1,6 +1,4 @@
-[title]:
-Subject and Corporate Profiling: Comprehensive Investigative Template
-
+# Subject and Corporate Profiling: Comprehensive Investigative Template
 [note]:
 Subject and Corporate Profiling: Comprehensive Investigative Template
 
@@ -189,9 +187,3 @@ Confidence Inflation	Strictly separate Likelihood (Probability of event) from Co
 
 
 End of Investigative Template
-
-[list]:
-
-
-[createdAt]: Mar 31, 2026, 3:07 PM
-[updatedAt]: Mar 31, 2026, 3:07 PM

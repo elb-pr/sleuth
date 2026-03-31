@@ -1,4 +1,7 @@
-Phase 1 of the investigative workflow, termed **Operational Direction & Strategic Foundation**, serves as the "Direction" stage of the Intelligence Cycle. It is designed to ensure that the investigation is conducted with professional rigour, objective reasoning, and auditable logic from the outset. This phase is not merely administrative; it is a defensive and analytical bulwark against "scope creep" and legal challenges, ensuring every action taken is proportionate and necessary.
+# Operational Direction & Strategic Foundation
+
+Phase 1 of the investigative workflow. The "Direction" stage of the Intelligence Cycle, designed to ensure professional rigour, objective reasoning, and auditable logic from the outset. A defensive and analytical bulwark against "scope creep" and legal challenges.
+
 
 ### Step 1: Defining Operational Goals and Justification
 The investigation begins with the deployment of the **Case Decision & Collection Log (CDL) Template**. This is a contemporaneous record that captures the "state of mind" of the investigator and the reasoning behind every strategic choice.

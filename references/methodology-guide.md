@@ -1,3 +1,5 @@
+# Investigation Workflow Guide
+
 This comprehensive workflow guide details the end-to-step investigative process, utilizing a cross-disciplinary architecture designed to ensure professional rigor and auditable logic. The workflow follows a sequential "Tool Dependency Map," where the output of one phase serves as the foundation for the next.
 
 ### Phase 1: Operational Direction & Strategic Foundation
@@ -39,4 +41,3 @@ The final stage is the delivery mechanism, designed for rapid consumption by dec
 *   **Step 14: Administrative Summary.** Complete the **Case Summary Record**, providing a high-level administrative overview of the case reference, scope, and current status.
 *   **Step 15: Practitioner Findings.** Issue a **Findings Memo** to summarize confirmed findings, unverified leads, and scope limitations in a concise format for investigative teams.
 
-Would you like me to go into more detail on how specific analytical frameworks, such as the STEEPLES or ACH matrix, are integrated into these templates during the investigation?

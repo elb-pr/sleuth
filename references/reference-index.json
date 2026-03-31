@@ -1,1 +1,82 @@
-
+{
+  "pipeline": {
+    "description": "6-phase investigative workflow. Each phase maps to a folder and one or more templates.",
+    "phases": [
+      {
+        "phase": 1,
+        "folder": "oppstrat",
+        "title": "Operational Direction & Strategic Foundation",
+        "file": "direction-foundation.md",
+        "templates_used": ["research/case-decision-log.md", "research/investigation-strategy.md"],
+        "intelligence_cycle_stage": "Direction"
+      },
+      {
+        "phase": 2,
+        "folder": "intelepi",
+        "title": "Intelligence Collection & Epistemic Filtering",
+        "file": "collection-filtering.md",
+        "templates_used": ["research/source-grading.md", "database/task-log.md", "database/evidence-register.md"],
+        "intelligence_cycle_stage": "Collection"
+      },
+      {
+        "phase": 3,
+        "folder": "colent",
+        "title": "Collation & Entity Resolution",
+        "file": "resolution.md",
+        "templates_used": ["analysis/pole.md", "database/entity-register.md", "research/family-network-research.md", "research/cultural-context.md"],
+        "intelligence_cycle_stage": "Processing"
+      },
+      {
+        "phase": 4,
+        "folder": "chronrel",
+        "title": "Chronological & Relational Processing",
+        "file": "process.md",
+        "templates_used": ["analysis/chronological-matrix.md", "analysis/network-architecture.md", "analysis/verification.md", "analysis/morphological.md"],
+        "intelligence_cycle_stage": "Processing"
+      },
+      {
+        "phase": 5,
+        "folder": "hypcog",
+        "title": "Hypothesis Reasoning & Cognitive De-biasing",
+        "file": "reason-debias.md",
+        "templates_used": ["analysis/ach.md"],
+        "intelligence_cycle_stage": "Analysis"
+      },
+      {
+        "phase": 6,
+        "folder": "findis",
+        "title": "Final Reporting & Dissemination",
+        "file": "report-disseminate.md",
+        "templates_used": ["working/briefing.md", "working/case-summary.md", "working/findings-memo.md", "working/nim.md", "working/aa-report.md"],
+        "intelligence_cycle_stage": "Dissemination"
+      }
+    ]
+  },
+  "consolidated_references": {
+    "description": "Domain-specific reference material from the original consolidation. Each folder is a sub-skill.",
+    "folders": {
+      "research": {
+        "methodology": "methodology.md",
+        "files": ["collection.md", "entity-research.md", "faf-research.md", "evidence.md", "tooling.md"]
+      },
+      "analysis": {
+        "methodology": "methodology.md",
+        "files": ["geopandas.md", "matplotlib.md", "networkx.md", "evidence-assessment.md", "tooling.md"]
+      },
+      "thinking": {
+        "methodology": "methodology.md",
+        "files": ["investigative-reasoning.md", "cognitive-frameworks.md", "mle-lexicon.md", "tooling.md"]
+      },
+      "tools": {
+        "files": ["mcp-reference.md", "research-tools.md"]
+      },
+      "outputs": {
+        "files": ["grade-drill-journalism.md", "markitdown.md", "vocabulary-register.md"]
+      }
+    }
+  },
+  "root_documents": {
+    "methodology-guide.md": "15-step investigation workflow mapping phases to templates",
+    "methodology-briefing.md": "Comprehensive briefing on investigative methodology and analytical infrastructure"
+  }
+}

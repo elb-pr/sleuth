@@ -1,4 +1,4 @@
-### Account Attribution Report Template
+# Account Attribution Report Template
 
 This template is designed to provide a rigorous, auditable structure for attributing a social media account to a specific real-world identity. It adheres to the Berkeley Protocol principles of accuracy and transparency, ensuring that findings distinguish between established facts and analytical inferences.
 

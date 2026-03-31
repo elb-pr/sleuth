@@ -1,4 +1,4 @@
-Strategic & Tactical Assessment (NIM) Template: Operational Intelligence Framework
+# Strategic & Tactical Assessment (NIM) Template: Operational Intelligence Framework
 
 1. Strategic Direction & Intelligence Mission
 

@@ -1,4 +1,4 @@
-Investigative Methodology and Analytical Infrastructure: A Comprehensive Briefing
+# Investigative Methodology and Analytical Infrastructure: A Comprehensive Briefing
 
 This document synthesizes the core themes, architectural standards, and operational methodologies of modern investigative research as of March 2026. It outlines the frameworks governing entity databases, case management, reporting standards, and the specialized domains of contextual and open-source intelligence (OSINT).
 

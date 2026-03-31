@@ -1,6 +1,4 @@
-[title]:
-Evidence & Material Register: Digital Chain of Custody Framework
-
+# Evidence & Material Register: Digital Chain of Custody Framework
 [note]:
 Evidence & Material Register: Digital Chain of Custody Framework
 
@@ -163,9 +161,3 @@ The Lead Investigator must adhere to the following validation cycle:
 3. Currency Review: Flagging and removing "stale" or outdated information to ensure findings reflect current reality.
 
 By implementing this framework, the investigative team ensures the delivery of an institutionally endorsed, defensible, and high-integrity investigative product.
-
-[list]:
-
-
-[createdAt]: Mar 31, 2026, 3:08 PM
-[updatedAt]: Mar 31, 2026, 3:08 PM

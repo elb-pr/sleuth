@@ -1,3 +1,5 @@
+# Case Summary Record
+
 The Case Summary Record is a high-level administrative overview designed for rapid consumption by decision-makers while maintaining objective distance. It serves as a foundational component within the investigation management domain, providing a snapshot of the case's parameters and ensuring that all actions remain within a defined legal and ethical mandate.
 
 ### Case Summary Record Template

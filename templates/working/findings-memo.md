@@ -1,3 +1,5 @@
+# Findings Memo
+
 The Findings Memo is a specialized practitioner format designed to consolidate investigative results into a concise, objective overview for decision-makers. It serves as a final delivery mechanism within the general case overview category, ensuring that findings are communicated with professional rigour and auditable logic. This template architecture prioritizes the separation of raw data from analytical interpretation to prevent cognitive bias and maintain epistemic transparency. By structuring findings into confirmed data, unverified leads, and negative results, the memo demonstrates that all reasonable lines of enquiry have been pursued.
 
 ### Findings Memo Template

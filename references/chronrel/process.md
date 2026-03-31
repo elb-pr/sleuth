@@ -1,4 +1,7 @@
-Phase 4 of the investigative workflow, **Chronological & Relational Processing**, is the synthesis stage where structured entities are mapped to identify patterns, causality, and hidden networks. This phase transforms static data into a dynamic "Tool Dependency Map," where the outputs of timelines and link charts serve as the evidence base for the subsequent reasoning phases.
+# Chronological & Relational Processing
+
+Phase 4 of the investigative workflow. Synthesis stage where structured entities are mapped to identify patterns, causality, and hidden networks.
+
 
 ### Step 9: Temporal Normalization & Chronological Analysis
 The primary tool for this step is the **Chronological Matrix Template**, which creates a temporal backbone for the investigation. This process is essential for Establishing causality and resolving conflicting narratives.

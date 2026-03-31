@@ -1,4 +1,7 @@
-Phase 3 of the investigative workflow, **Collation & Entity Resolution**, focuses on transforming the raw, vetted intelligence gathered in Phase 2 into a structured, relational database. This phase acts as the "central nervous system" of the analytical effort, where disparate data points are resolved into unique real-world entities to identify hidden connections and patterns.
+# Collation & Entity Resolution
+
+Phase 3 of the investigative workflow. Transforming raw, vetted intelligence into a structured relational database. The "central nervous system" of the analytical effort.
+
 
 ### Step 6: Structured Extraction and Schema Mapping
 The first step in collation is the transition from unstructured text or raw data files into a machine-readable format using the **Entity Extraction & Profiling Template**.

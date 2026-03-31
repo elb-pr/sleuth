@@ -1,4 +1,7 @@
-Phase 2 of the investigative workflow, **Intelligence Collection & Epistemic Filtering**, represents the transition from strategic planning to active field and digital operations. This phase is governed by the "Evaluation" stage of the Intelligence Cycle, ensuring that the raw data entering the system is filtered through a rigorous epistemic gate to prevent "workspace poisoning" by unverified or deceptive information.
+# Intelligence Collection & Epistemic Filtering
+
+Phase 2 of the investigative workflow. The transition from strategic planning to active field and digital operations, governed by the "Evaluation" stage of the Intelligence Cycle.
+
 
 ### Step 3: Initial Vetting and Epistemic Filtering
 The primary tool for this step is the **Source & Credibility Grader Template**. As raw data is collected, it must be independently assessed for the reliability of its origin and the logical credibility of the claim itself.

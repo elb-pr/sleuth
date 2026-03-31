@@ -1,4 +1,7 @@
-Phase 5 of the investigative workflow, **Hypothesis Reasoning & Cognitive De-biasing**, represents the highest cognitive layer of the investigative infrastructure. This phase is designed to transition from identifying patterns to rigorously testing theoretical explanations while actively combating cognitive biases such as confirmation bias and premature closure. The primary instrument for this stage is the **Analysis of Competing Hypotheses (ACH) Template**, which functions as a mandatory cognitive checkpoint before any final conclusions are drawn.
+# Hypothesis Reasoning & Cognitive De-biasing
+
+Phase 5 of the investigative workflow. The highest cognitive layer, transitioning from pattern identification to rigorous hypothesis testing while combating confirmation bias and premature closure.
+
 
 ### Step 12: Testing Alternatives and the Inconsistency Principle
 The ACH process operates on the scientific principle of refutation rather than confirmation. Instead of seeking evidence to prove a favored theory, it asserts that the most likely hypothesis is the one with the least evidence against it—a concept known as the **Inconsistency Principle**.

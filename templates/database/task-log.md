@@ -1,6 +1,4 @@
-[title]:
-Investigative Task Log & Actions Register: Professional Template and Operational Methodology
-
+# Investigative Task Log & Actions Register: Professional Template and Operational Methodology
 [note]:
 Investigative Task Log & Actions Register: Professional Template and Operational Methodology
 
@@ -135,9 +133,3 @@ For the investigative professional, the Task Log is not a diary; it is a legal i
 2. SHA-256 Hashing: All digital files must be cryptographically hashed at the time of collection. This preserves the chain of custody and provides a mathematical proof that the material has not been tampered with.
 
 Adherence to this methodology ensures that every enquiry serves the pursuit of truth, resulting in a case file that is analytically superior, ethically sound, and legally unassailable.
-
-[list]:
-
-
-[createdAt]: Mar 31, 2026, 3:07 PM
-[updatedAt]: Mar 31, 2026, 3:07 PM
