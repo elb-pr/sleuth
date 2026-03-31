@@ -1,8 +1,4 @@
-[title]:
-
-
-[note]:
-Operational Case Decision & Intelligence Collection Log Template
+# Operational Case Decision & Intelligence Collection Log Template
 
 1. Preliminary Case Authorization and Strategic Framing
 
