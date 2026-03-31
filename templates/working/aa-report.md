@@ -51,4 +51,3 @@ The assessment must strictly separate the reliability of the sources from the li
 
 ---
 
-Would you like to see how this template integrates with a specific source evaluation framework, such as the Admiralty 6x6 Matrix, to further refine the confidence assessment of your findings?
