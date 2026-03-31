@@ -309,6 +309,143 @@ def print_status(tasks: list, state: dict):
 
 
 # ---------------------------------------------------------------------------
+# Verification gate
+# ---------------------------------------------------------------------------
+HEADER_RE = re.compile(r"^###\s+\d+\.?\s*(.+)$")
+BULLET_RE = re.compile(r"^\*\s+\*\*(.+?)(?::\*\*|:\s*\*\*)\s*(.*)$")
+SUB_BULLET_RE = re.compile(r"^\s+\*\s+\*\*(.+?)(?::\*\*|:\s*\*\*)\s*(.*)$")
+
+
+def extract_checklist(task: dict) -> list[dict]:
+    """Parse a task file into checklist sections with items.
+
+    Returns a list of sections, each with a title and list of requirement items
+    extracted from the markdown structure.
+    """
+    try:
+        content = Path(task["abs_path"]).read_text().strip()
+    except Exception:
+        return []
+
+    if not content:
+        return []
+
+    sections = []
+    current_section = None
+
+    for line in content.splitlines():
+        # Match section headers: ### 1. Title
+        header_match = HEADER_RE.match(line.strip())
+        if header_match:
+            current_section = {
+                "title": header_match.group(1).strip(),
+                "items": [],
+            }
+            sections.append(current_section)
+            continue
+
+        if current_section is None:
+            continue
+
+        # Match top-level bullet requirements: *   **Label:** Description
+        bullet_match = BULLET_RE.match(line.strip())
+        if bullet_match:
+            label = bullet_match.group(1).strip()
+            # Clean trailing markdown artifacts
+            label = label.rstrip("*").strip()
+            current_section["items"].append(label)
+            continue
+
+        # Match sub-bullet requirements (indented): *   **Label:** Description
+        sub_match = SUB_BULLET_RE.match(line)
+        if sub_match:
+            label = sub_match.group(1).strip().rstrip("*").strip()
+            current_section["items"].append(f"  {label}")
+
+    return sections
+
+
+def print_verification_gate(task: dict, tasks: list, state: dict):
+    """Print the completed task's requirements as a verification checklist.
+
+    This forces the operator to review every requirement before the task
+    is marked complete. The checklist is extracted from the task file's
+    markdown structure (headers and bold bullet items).
+    """
+    tid = task["id"]
+    phase_meta = PHASES[task["phase"]]
+    step = task["step"]
+
+    print()
+    print_divider("━")
+    print(f"  VERIFICATION GATE — {tid.upper()}")
+    print(f"  Phase {phase_meta['number']}: {phase_meta['title']}")
+    print_divider("━")
+
+    sections = extract_checklist(task)
+
+    if not sections:
+        # Fallback: no structured content could be extracted
+        print(f"\n  No structured checklist could be extracted from {task['file']}.")
+        print(f"  Review the task file manually before confirming completion.")
+        print()
+        print_divider()
+        print(f"  FILE: {task['file']}")
+        print_divider()
+        try:
+            content = Path(task["abs_path"]).read_text().strip()
+            if content:
+                # Print first 20 lines as a reminder
+                for line in content.splitlines()[:20]:
+                    print(f"  {line}")
+                if len(content.splitlines()) > 20:
+                    print(f"  ... ({len(content.splitlines()) - 20} more lines)")
+            else:
+                print("  [EMPTY FILE]")
+        except Exception as e:
+            print(f"  [Error: {e}]")
+        print()
+        print_divider("━")
+        return
+
+    # Print structured checklist
+    item_count = 0
+    for section in sections:
+        print(f"\n  {section['title']}")
+        if section["items"]:
+            for item in section["items"]:
+                if item.startswith("  "):
+                    # Sub-item
+                    print(f"      [ ] {item.strip()}")
+                else:
+                    print(f"    [ ] {item}")
+                item_count += 1
+        else:
+            print(f"    (no specific requirements extracted)")
+
+    # Scripts and templates for this step
+    scripts = STEP_SCRIPTS.get(step, [])
+    templates = STEP_TEMPLATES.get(step, [])
+    tools = STEP_MCP_TOOLS.get(step, [])
+
+    if scripts or templates or tools:
+        print(f"\n  Tooling used:")
+        for s in scripts:
+            print(f"    [ ] scripts/{s}")
+        for t in templates:
+            print(f"    [ ] templates/{t}")
+        for t in tools:
+            print(f"    [ ] {t}")
+
+    print()
+    print_divider("━")
+    print(f"  {item_count} requirements to verify.")
+    print(f"  Confirm ALL items were completed before proceeding.")
+    print_divider("━")
+    print()
+
+
+# ---------------------------------------------------------------------------
 # Commands
 # ---------------------------------------------------------------------------
 def cmd_next(tasks: list, state: dict):
@@ -321,7 +458,7 @@ def cmd_next(tasks: list, state: dict):
 
 
 def cmd_done(tasks: list, state: dict):
-    """Mark current task done and advance."""
+    """Mark current task done and advance, printing verification gate first."""
     idx = state["current_index"]
     if idx >= len(tasks):
         print("\n  All tasks already complete.\n")
@@ -329,6 +466,9 @@ def cmd_done(tasks: list, state: dict):
 
     task = tasks[idx]
     tid = task["id"]
+
+    # Print verification gate for the completed task
+    print_verification_gate(task, tasks, state)
 
     if tid not in state["completed"]:
         state["completed"].append(tid)
