@@ -34,5 +34,3 @@ To maintain the "quality backbone" of the investigation, the reasoning phase mus
 *   **Mandatory Diversity of Theory:** The matrix must evaluate at least three mutually exclusive hypotheses to prevent "satisficing"—the tendency to stop as soon as a seemingly adequate explanation is found.
 *   **Source Provenance Maintenance:** Ensure that every piece of evidence used in the matrix remains linked to its original **Source & Credibility Grading** (Phase 2) to ensure the weight of evidence is properly understood.
 *   **Inconsistency Transparency:** The final narrative conclusion must be derived logically from the inconsistency scores, and the reasoning for rejecting alternative hypotheses must be documented for inclusion in the final briefing.
-
-Would you like me to conclude the guide with the final phase, detailing how these reasoning outputs are transformed into **Briefing Formats** such as the **Analytical Briefing Generator (ICD 203)** or **Findings Memos**?
