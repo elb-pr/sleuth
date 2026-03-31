@@ -2,14 +2,16 @@
 """
 Matplotlib Plot Template
 
-Comprehensive template demonstrating various plot types and best practices.
-Use this as a starting point for creating publication-quality visualizations.
+Templates for investigation-specific visualisation: incident timelines,
+territory boundary maps, entity network graphs, evidence quality
+distribution, and drill emotion radar plots.
 
 Usage:
     python plot_template.py [--plot-type TYPE] [--style STYLE] [--output FILE]
 
 Plot types:
-    line, scatter, bar, histogram, heatmap, contour, box, violin, 3d, all
+    line, scatter, bar, histogram, heatmap, contour, box, violin, 3d,
+    timeline, evidence_quality, all
 """
 
 import numpy as np
