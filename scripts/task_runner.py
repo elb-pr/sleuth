@@ -17,11 +17,17 @@ Usage:
 """
 
 import argparse
+import importlib.metadata
 import json
 import os
 import re
+import subprocess
 import sys
 from pathlib import Path
+
+# Import module/package definitions from setup.py
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from setup import MODULES
 
 # ---------------------------------------------------------------------------
 # Paths
@@ -123,6 +129,102 @@ STEP_MCP_TOOLS = {
     14: [],
     15: [],
 }
+
+# ---------------------------------------------------------------------------
+# Script → module dependencies
+# ---------------------------------------------------------------------------
+SCRIPT_MODULES = {
+    "source_grader.py":          ["core", "nlp"],
+    "database_manager.py":       ["core"],
+    "evidence_preservation.py":  ["archiving"],
+    "content_archiver.py":       ["archiving", "social"],
+    "entity_resolver.py":        ["entity_resolution"],
+    "corporate_intel.py":        ["corporate"],
+    "domain_intel.py":           ["network"],
+    "username_enum.py":          ["identity"],
+    "sanctions_screen.py":       ["sanctions"],
+    "chronological_matrix.py":   ["core"],
+    "network_graph.py":          ["graph"],
+    "geolocation.py":            ["geo"],
+    "report_generator.py":       ["reporting"],
+    "financial_analysis.py":     ["corporate", "reporting"],
+}
+
+# ---------------------------------------------------------------------------
+# Dependency resolution and install
+# ---------------------------------------------------------------------------
+
+def get_cumulative_modules(tasks: list, up_to_index: int) -> list[str]:
+    """Return the union of all modules required from task 0 through up_to_index."""
+    seen = set()
+    modules = ["core"]  # always required
+    for task in tasks[:up_to_index + 1]:
+        step = task["step"]
+        for script in STEP_SCRIPTS.get(step, []):
+            for module in SCRIPT_MODULES.get(script, []):
+                if module not in seen:
+                    seen.add(module)
+                    modules.append(module)
+    return modules
+
+
+def get_installed_packages() -> set[str]:
+    """Return set of currently installed package names (normalised)."""
+    installed = set()
+    for dist in importlib.metadata.distributions():
+        name = dist.metadata["Name"]
+        if name:
+            installed.add(name.lower().replace("-", "_"))
+            installed.add(name.lower().replace("_", "-"))
+    return installed
+
+
+def install_for_task(tasks: list, state: dict):
+    """Install any packages required for the current task that aren't yet present."""
+    idx = state["current_index"]
+    if idx >= len(tasks):
+        return
+
+    required_modules = get_cumulative_modules(tasks, idx)
+
+    # Flatten to package list, deduplicated
+    seen = set()
+    packages = []
+    for module in required_modules:
+        for pkg in MODULES.get(module, {}).get("packages", []):
+            key = pkg.lower().replace("-", "_")
+            if key not in seen:
+                seen.add(key)
+                packages.append(pkg)
+
+    installed = get_installed_packages()
+    missing = [p for p in packages if p.lower().replace("-", "_") not in installed
+               and p.lower().replace("_", "-") not in installed]
+
+    if not missing:
+        return
+
+    print(f"\n  Installing {len(missing)} missing package(s) for this task...")
+    print(f"  Modules: {', '.join(required_modules)}")
+    print()
+
+    passed, failed = [], []
+    for pkg in missing:
+        result = subprocess.run(
+            [sys.executable, "-m", "pip", "install", pkg, "--break-system-packages", "-q"],
+            capture_output=True,
+            text=True,
+        )
+        if result.returncode == 0:
+            passed.append(pkg)
+            print(f"  ✓ {pkg}")
+        else:
+            failed.append(pkg)
+            note = (result.stdout + result.stderr).strip().split("\n")[-1][:80]
+            print(f"  ✗ {pkg}  —  {note}")
+
+    print(f"\n  {len(passed)} installed, {len(failed)} failed.\n")
+
 
 # ---------------------------------------------------------------------------
 # Task discovery and ordering
@@ -454,6 +556,7 @@ def cmd_next(tasks: list, state: dict):
     if idx >= len(tasks):
         print("\n  All tasks complete. Run `task_runner.py status` for overview.\n")
         return
+    install_for_task(tasks, state)
     print_task_card(tasks[idx], tasks, state)
 
 
@@ -480,6 +583,7 @@ def cmd_done(tasks: list, state: dict):
 
     if idx + 1 < len(tasks):
         print(f"  Loading next task...\n")
+        install_for_task(tasks, state)
         print_task_card(tasks[idx + 1], tasks, state)
     else:
         print(f"\n  All {len(tasks)} tasks complete.")
@@ -501,6 +605,7 @@ def cmd_jump(tasks: list, state: dict, target: str):
     state["current_index"] = idx
     save_progress(state)
     print(f"\n  Jumped to {target_clean.upper()}.")
+    install_for_task(tasks, state)
     print_task_card(tasks[idx], tasks, state)
 
 
