@@ -1,8 +1,9 @@
 """
-Content Visualization Tools
+Content Visualisation Tools
 
-This module provides comprehensive visualization capabilities for content analysis
-including sentiment plots, topic visualizations, and interactive dashboards.
+Adapted for UK drill investigation. Provides investigation-specific
+visualisation presets: timeline plots, territory overlays, network
+graphs, evidence distribution charts, and drill emotion heatmaps.
 """
 
 import pandas as pd
@@ -19,21 +20,32 @@ import matplotlib.patches as mpatches
 from matplotlib.gridspec import GridSpec
 import warnings
 
-# Set matplotlib parameters for better Chinese font support
-plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans', 'Arial Unicode MS']
-plt.rcParams['axes.unicode_minus'] = False
+# Investigation colour palette
+INVESTIGATION_COLOURS = {
+    "confirmed": "#2ecc71",    # green
+    "likely": "#f39c12",       # amber
+    "speculation": "#e74c3c",  # red
+    "gap": "#95a5a6",          # grey
+    "doesnt_add_up": "#8e44ad", # purple
+    "threat": "#c0392b",
+    "grief": "#2c3e50",
+    "bravado": "#d35400",
+    "loyalty": "#27ae60",
+    "disrespect": "#e74c3c",
+}
 
 class ContentVisualizer:
     """
-    Comprehensive content visualization toolkit.
+    Visualisation toolkit adapted for UK drill investigation.
 
-    Provides various visualization types for content analysis results
-    including sentiment analysis, topic modeling, and performance metrics.
+    Includes investigation-specific colour palettes keyed to epistemic
+    markers (CONFIRMED/LIKELY/SPECULATION/GAP) and drill emotion
+    categories (threat/grief/bravado/loyalty/disrespect).
     """
 
     def __init__(self, style: str = 'seaborn-v0_8', figsize: Tuple[int, int] = (12, 8)):
         """
-        Initialize the ContentVisualizer.
+        Initialise the ContentVisualizer.
 
         Args:
             style: Matplotlib style to use
@@ -42,11 +54,12 @@ class ContentVisualizer:
         self.style = style
         self.figsize = figsize
         self.color_palette = sns.color_palette("husl", 10)
+        self.investigation_colours = INVESTIGATION_COLOURS
 
         # Set matplotlib style
         try:
             plt.style.use(style)
-        except:
+        except Exception:
             plt.style.use('default')
 
         # Configure seaborn
