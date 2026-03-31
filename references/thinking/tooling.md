@@ -76,4 +76,4 @@ Load the master Profiling Toolkit — the orchestration router with the full dis
 
 | Asset | Purpose |
 |---|---|
-| `mle-lexicon.md.txt` | Multicultural London English vocabulary for parsing drill lyrics and community language during reasoning work |
+| `mle-lexicon.md` | Multicultural London English vocabulary for parsing drill lyrics and community language during reasoning work |

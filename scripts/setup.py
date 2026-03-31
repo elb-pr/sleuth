@@ -15,6 +15,7 @@ PACKAGES = [
     "instaloader",
     "maigret",
     "markitdown",
+    "sherlock-project",
     # Analysis & visualisation
     "matplotlib",
     "networkx",

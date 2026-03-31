@@ -12,14 +12,14 @@ Username enumeration across 400+ platforms. Given a username, checks whether acc
 
 **Invocation:**
 ```bash
-python3 scripts/sherlock.py [username]
+sherlock [username]
 ```
 
 **Use when:** You have a username from one platform and want to find accounts on others. Essential first step in entity profiling.
 
 **Output:** List of discovered profile URLs with platform names.
 
-**Notes:** Some sites in the Sherlock database have been removed or produce false positives. See `_archive/sherlock-removed-sites.md` for the removed sites list if you get unreliable results on specific platforms.
+**Notes:** Installed via `pip install sherlock-project` (handled by setup.py). Some sites produce false positives — cross-check results before marking CONFIRMED.
 
 ### Maigret
 
@@ -111,10 +111,10 @@ instaloader --no-videos --no-video-thumbnails [profile_name]
 
 | Script | Purpose |
 |---|---|
-| `scripts/sherlock.py` | Username enumeration across platforms |
 | `scripts/discover_artists.py` | Discover drill artists associated with a gang or postcode |
-| `scripts/site-list.py` | Generate site lists for targeted searching |
-| `scripts/sites.py` | Site definitions for platform-specific extraction |
+| `scripts/mle_query_generator.py` | Translate MLE slang to structured multi-platform search queries |
+| `scripts/autocomplete_mine.py` | Mine YouTube autocomplete for drill keyword patterns |
+| `scripts/sync-database.py` | Validate and manage entity/geo databases |
 | `scripts/setup.py` | Install all pip dependencies |
 
 ---
@@ -127,7 +127,7 @@ instaloader --no-videos --no-video-thumbnails [profile_name]
 | `assets/entity-database/entities.json` | Entity records from prior investigations | Check for existing profiles |
 | `assets/entity-database/relationships.json` | Known relationship data | Seed network mapping |
 | `assets/entity-database/gang-descriptions.md` | London gang narrative descriptions | Context for gang profiling |
-| `assets/entity-database/mle-lexicon.md` | MLE (Multicultural London English) vocabulary | Parse drill lyrics and community language |
+| `references/thinking/mle-lexicon.md` | MLE (Multicultural London English) vocabulary | Parse drill lyrics and community language |
 | `assets/geo-database/gang-information.csv` | 5,083 territory polygons in WKT format | Territory queries via geopandas |
 | `assets/geo-database/gang-deaths.csv` | 2,432 death/incident points | Incident mapping |
 | `assets/geo-database/gang-music-videos.csv` | 343 music video filming locations | Cross-reference filming against territories |
