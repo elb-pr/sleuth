@@ -20,6 +20,8 @@ Scripts:
     content_archiver.py     - yt-dlp + gallery-dl + Playwright capture
     report_generator.py     - ICD 203 briefings and findings memos
     database_manager.py     - Entity database CRUD and integrity
+    task_runner.py          - Sequential 56-task workflow runner
+    template_builder.py     - Dynamic workspace assembler from templates
 """
 
 __version__ = "1.0.0"
