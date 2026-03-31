@@ -1,0 +1,69 @@
+- Convert to json.
+
+Research Templates
+Research templates focus on the initial scoping, justification, and strategic planning of an investigation to ensure proportionality and legal compliance
+.
+Case Decision & Collection Log Template: This template is used at the start of an investigation to define operational goals and identify knowledge gaps
+. It outputs an Intelligence Collection Plan and incorporates frameworks like STEEPLES (Social, Technical, Economic, Environmental, Political, Legal, Ethical, Safety) and PLAN (Proportionality, Legality, Accountability, Necessity) to justify investigative vectors
+.
+Investigation Plan / Strategy Document: A dynamic template that defines intelligence requirements, collection strategies for open and closed sources, priority lines of enquiry, and resource allocation
+.
+Source & Credibility Grader Template: Designed to filter raw data as it enters the intelligence cycle
+. It applies the Admiralty 6x6 Matrix to assign alphanumeric grades (A-F for reliability, 1-6 for credibility) to every discrete claim, ensuring that unverified information does not poison the analytical workspace
+.
+Genealogical & Family Network Research Template: A deep research template that enforces the Genealogical Proof Standard (GPS)
+. It prioritizes a hierarchy of sources—starting with civil registration and vital records—and requires the AI to explicitly test kinship hypotheses
+.
+Cultural Context & Ethnographic Background Template: This template enables rapid ethnographic assessment by mapping identity structures, power hierarchies, and community norms
+. It mandates the inclusion of role-specific ethical constraints to prevent the essentializing of cultures
+.
+Analysis Templates
+Analysis templates are "processing" tools that synthesize structured data into patterns, identify gaps, and test competing theories
+.
+Analysis of Competing Hypotheses (ACH) Template: The most rigorous reasoning template, it builds a matrix to test evidence against at least three mutually exclusive hypotheses
+. It operates on the "Inconsistency Principle," ranking the viability of explanations based on which has the least evidence against it rather than the most confirmations
+.
+Chronological Matrix Template: This template takes disjointed event data and normalizes it into a UTC-standardized timeline
+. It is specifically designed to highlight temporal gaps ("unknowns") and resolve contradictions where multiple sources provide conflicting timestamps for the same event
+.
+Network Architecture (Edge List) Template: A relationship mapping tool that outputs structured tabular data (Source, Target, Relationship Type, Evidence Citation)
+. It is used to identify "Central Hubs" with high degree centrality and "Bridge Nodes" that act as gatekeepers between clusters
+.
+Entity Extraction & Profiling Template: Uses NIEM-inspired or POLE (Person, Object, Location, Event) schemas to parse raw text into structured records
+. It enforces deterministic matching for unique identifiers like passport numbers and flags probabilistic matches for human review
+.
+Content Verification Report: A specialized SOCMINT template used to authenticate photos or videos
+. It requires multi-step verification, including reverse image searching, geolocation via visual cues, and chronolocation through shadow and weather analysis
+.
+Economic History & Place History Templates: These templates use urban morphology and spatial econometric techniques to analyze how specific sites or regional economies have evolved
+. They output map regression summaries and significance assessments
+.
+Database Templates
+Database templates serve as the central repository for the investigation, ensuring that every piece of data maintains strict provenance and lineage
+.
+Entity Register: A structured database of all persons, organizations, and locations identified
+. It requires universal metadata for every record, including source attribution, date observed, and an analyst's identity
+.
+Task Log / Actions Register: A continuous log that records every investigative enquiry, the individual assigned, and the specific outcome
+. It mandates that "negative results" (finding nothing) be recorded to demonstrate that all reasonable lines of enquiry were pursued
+.
+Evidence / Material Register: A register for captured physical and digital evidence that includes cryptographic hash values, capture details, and storage locations to maintain the digital chain of custody
+.
+Subject & Corporate Profiles: Templates that consolidate findings on specific targets
+. Subject profiles include identity, employment, and digital footprints, while Corporate Profiles focus on ownership chains, beneficial owners, and financial red flags like circular ownership
+.
+General Case Overview/Briefs
+These templates are the final delivery mechanism, designed for rapid consumption by decision-makers while maintaining objective distance
+.
+Analytical Briefing Generator Template: Produces reports following ICD 203 standards, featuring a "Bottom Line Up Front" (BLUF) structure
+. It strictly separates Facts, Assumptions, and Judgements and maps all probabilistic claims to a standard 7-tier scale
+.
+Case Summary Record: A high-level administrative overview including the case reference, investigation scope, and current status
+.
+Findings Memo: A practitioner format used to summarize confirmed findings, unverified leads, and scope limitations in a concise format
+.
+Strategic & Tactical Assessments (NIM): Law enforcement templates used to inform long-term force strategy or drive immediate operational tasking based on current threats
+.
+Account Attribution Report: A specialized SOCMINT brief that provides a profile of a social media account and the specific evidence supporting its attribution to a real-world identity
+.
+
