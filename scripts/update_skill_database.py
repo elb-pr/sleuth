@@ -3,8 +3,8 @@
 Skill Packager: Creates a distributable .skill file from a skill folder.
 
 Usage:
-    python scripts/package_skill.py <path/to/skill-folder>
-    python scripts/package_skill.py <path/to/skill-folder> ./dist
+    python scripts/update_skill_database.py <path/to/skill-folder>
+    python scripts/update_skill_database.py <path/to/skill-folder> ./dist
 
 The .skill file is a zip archive containing the complete skill folder structure,
 ready for distribution and installation.
@@ -20,39 +20,95 @@ import zipfile
 import re
 from pathlib import Path
 from typing import Tuple, Optional
+from dataclasses import dataclass, field
 
-# Import validation from sibling module
-try:
-    from validate_skill import analyse_skill
-except ImportError:
-    # Handle running from different directories
-    sys.path.insert(0, str(Path(__file__).parent))
-    from validate_skill import analyse_skill
+
+@dataclass
+class ValidationResult:
+    errors: list[str] = field(default_factory=list)
+    warnings: list[str] = field(default_factory=list)
+
+    @property
+    def has_errors(self) -> bool:
+        return len(self.errors) > 0
+
+    @property
+    def has_warnings(self) -> bool:
+        return len(self.warnings) > 0
+
+
+def analyse_skill(skill_md: Path) -> ValidationResult:
+    """
+    Minimal skill validation for packaging purposes.
+
+    Checks:
+    - File exists and is readable
+    - Has YAML frontmatter with name and description
+    - Has required XML tags: <identity>, <constraints>, <methodology>
+    - Has at least one <example>
+    - Has <constraints_reminder>
+    """
+    result = ValidationResult()
+
+    if not skill_md.exists():
+        result.errors.append(f"SKILL.md not found at {skill_md}")
+        return result
+
+    content = skill_md.read_text(encoding="utf-8")
+
+    # Check frontmatter
+    if not content.startswith("---"):
+        result.errors.append("Missing YAML frontmatter (must start with ---)")
+    else:
+        end = content.find("---", 3)
+        if end == -1:
+            result.errors.append("Unclosed frontmatter (missing closing ---)")
+        else:
+            fm = content[3:end]
+            if not re.search(r"^name:", fm, re.MULTILINE):
+                result.errors.append("Frontmatter missing 'name' field")
+            if not re.search(r"^description:", fm, re.MULTILINE):
+                result.errors.append("Frontmatter missing 'description' field")
+
+    # Check required XML tags
+    required_tags = ["identity", "constraints", "methodology"]
+    for tag in required_tags:
+        if f"<{tag}>" not in content:
+            result.errors.append(f"Missing required <{tag}> tag")
+
+    # Warnings
+    if "<example>" not in content and "<examples>" not in content:
+        result.warnings.append("No <example> or <examples> tag found")
+    if "<constraints_reminder>" not in content:
+        result.warnings.append("No <constraints_reminder> tag found")
+    if "<output_format>" not in content:
+        result.warnings.append("No <output_format> tag found")
+
+    return result
 
 
 def validate_skill_folder(skill_path: Path) -> Tuple[bool, str]:
     """
     Validate a skill folder for packaging.
-    
+
     Checks:
     - SKILL.md exists and passes validation
     - Folder name matches frontmatter name
     - Directory structure is valid
-    
+
     Args:
         skill_path: Path to the skill folder
-        
+
     Returns:
         Tuple of (is_valid, message)
     """
     skill_md = skill_path / "SKILL.md"
-    
+
     # Run content validation
     analysis = analyse_skill(skill_md)
-    
+
     if analysis.has_errors:
-        error_messages = [f"  - {r.rule}: {r.message}" for r in analysis.results 
-                        if r.severity.value == "ERROR"]
+        error_messages = [f"  - {e}" for e in analysis.errors]
         return False, "Content validation failed:\n" + "\n".join(error_messages)
     
     # Extract name from frontmatter and verify it matches folder name
@@ -68,7 +124,7 @@ def validate_skill_folder(skill_path: Path) -> Tuple[bool, str]:
     
     # Warnings don't block packaging
     if analysis.has_warnings:
-        warning_count = sum(1 for r in analysis.results if r.severity.value == "WARNING")
+        warning_count = len(analysis.warnings)
         return True, f"Validation passed with {warning_count} warning(s)"
     
     return True, "Validation passed"
@@ -112,30 +168,30 @@ def package_skill(skill_path: Path, output_dir: Optional[Path] = None, force: bo
     
     # Validate folder exists
     if not skill_path.exists():
-        print(f"❌ Error: Skill folder not found: {skill_path}")
+        print(f" Error: Skill folder not found: {skill_path}")
         return None
     
     if not skill_path.is_dir():
-        print(f"❌ Error: Path is not a directory: {skill_path}")
+        print(f" Error: Path is not a directory: {skill_path}")
         return None
     
     # Check SKILL.md exists
     skill_md = skill_path / "SKILL.md"
     if not skill_md.exists():
-        print(f"❌ Error: SKILL.md not found in {skill_path}")
+        print(f" Error: SKILL.md not found in {skill_path}")
         print("   Every skill folder must contain a SKILL.md file.")
         return None
     
     # Run validation
-    print("🔍 Validating skill...")
+    print(" Validating skill...")
     valid, message = validate_skill_folder(skill_path)
     
     if not valid:
-        print(f"❌ {message}")
+        print(f" {message}")
         print("\n   Fix validation errors before packaging.")
         return None
     
-    print(f"✅ {message}\n")
+    print(f" {message}\n")
     
     # Determine output location
     skill_name = skill_path.name
@@ -148,7 +204,7 @@ def package_skill(skill_path: Path, output_dir: Optional[Path] = None, force: bo
     skill_filename = output_path / f"{skill_name}.skill"
     
     # Create the .skill file (zip format)
-    print(f"📦 Creating {skill_filename.name}...")
+    print(f" Creating {skill_filename.name}...")
     
     try:
         with zipfile.ZipFile(skill_filename, 'w', zipfile.ZIP_DEFLATED) as zipf:
@@ -167,15 +223,15 @@ def package_skill(skill_path: Path, output_dir: Optional[Path] = None, force: bo
                     print(f"   Added: {arcname}")
                     file_count += 1
         
-        print(f"\n✅ Successfully packaged {file_count} files to: {skill_filename}")
+        print(f"\n Successfully packaged {file_count} files to: {skill_filename}")
         print(f"   File size: {skill_filename.stat().st_size / 1024:.1f} KB")
         return skill_filename
         
     except PermissionError as e:
-        print(f"❌ Permission denied: {e}")
+        print(f" Permission denied: {e}")
         return None
     except Exception as e:
-        print(f"❌ Error creating .skill file: {e}")
+        print(f" Error creating .skill file: {e}")
         return None
 
 
@@ -196,7 +252,7 @@ def main():
     skill_path = Path(args.skill_path)
     output_dir = Path(args.output_dir) if args.output_dir else None
     
-    print(f"📦 Packaging skill: {skill_path}")
+    print(f" Packaging skill: {skill_path}")
     if output_dir:
         print(f"   Output directory: {output_dir}")
     if args.force:
