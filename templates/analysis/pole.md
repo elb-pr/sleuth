@@ -1,4 +1,4 @@
-Technical Manual: Entity Extraction and Profiling Template (POLE Standard)
+# Technical Manual: Entity Extraction and Profiling Template (POLE Standard)
 
 1. Conceptual Framework: The Shift from Narrative to Structured Intelligence
 

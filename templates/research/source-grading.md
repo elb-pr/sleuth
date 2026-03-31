@@ -126,9 +126,3 @@ Mitigation of Circular Reporting
 Circular Reporting ("echoes") occurs when multiple sources report the same underlying information, creating a false sense of corroboration. The grader must follow a strict command: Trace all claims back to the original primary source before assigning a final grade. If multiple outlets quote a single unverified social media post, they are a single source, not independent corroboration.
 
 By adhering to these grading and tradecraft standards, the investigator ensures the legal and professional admissibility of the final intelligence product, transforming raw data into a credible evidence base for high-stakes decision-making.
-
-[list]:
-
-
-[createdAt]: Mar 31, 2026, 2:29 PM
-[updatedAt]: Invalid Date

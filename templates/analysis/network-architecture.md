@@ -1,4 +1,4 @@
-Investigative Network Architecture Template: A Structured Framework for Relationship Mapping and Social Network Analysis (SNA)
+# Investigative Network Architecture Template: A Structured Framework for Relationship Mapping and Social Network Analysis (SNA)
 
 1. Introduction to Investigative Network Architecture
 

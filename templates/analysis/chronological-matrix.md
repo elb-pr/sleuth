@@ -1,4 +1,4 @@
-The Chronological Matrix: Professional Investigative Timeline & Gap Analysis Template
+# The Chronological Matrix: Professional Investigative Timeline & Gap Analysis Template
 
 1. Strategic Framework for Temporal Analysis
 

@@ -1,4 +1,3 @@
-
 # Genealogical & Family Network Investigative Research Framework
 
 1. Research Governance and GPS Foundational Strategy
@@ -203,9 +202,3 @@ Every factual claim must be followed by a bracketed citation.
 3. [Identity Resolution Task]
 
 Summary: The application of this framework transforms raw genealogical data into a professional, defensible investigative resource. By enforcing the GPS and POLE models, the investigator ensures that family networks are resolved with forensic precision.
-
-[list]:
-
-
-[createdAt]: Mar 31, 2026, 2:29 PM
-[updatedAt]: Invalid Date

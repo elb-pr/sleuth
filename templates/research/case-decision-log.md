@@ -155,9 +155,3 @@ Requirement: Every link must cite the source and the Confidence Level (High/Mode
 
 
 This template transforms raw investigative intent into a structured, defensible, and high-value intelligence operation, ensuring that findings are resilient to challenge.
-
-[list]:
-
-
-[createdAt]: Mar 31, 2026, 2:30 PM
-[updatedAt]: Invalid Date

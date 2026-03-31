@@ -186,9 +186,3 @@ Legal & Ethical Checkpoints
 * Data Minimization: Delete records found to have no analytical relevance to the objective.
 
 Conclusion: This document is a "living" strategy. To maintain operational integrity and compliance with College of Policing standards, this plan and its associated logs must undergo formal review every 30 days.
-
-[list]:
-
-
-[createdAt]: Mar 31, 2026, 2:30 PM
-[updatedAt]: Invalid Date

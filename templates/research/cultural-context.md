@@ -196,9 +196,3 @@ Strategic Summary
 Final "So What?" Statement
 
 This cultural map transforms raw data into a context-aware operation. By mapping the underlying layers of identity, power, and norms, the investigator can predict mobilization patterns, assess source credibility through the Admiralty system, and navigate complex human landscapes with ethical and operational precision. Cultural intelligence is the "interpretive layer" that ensures every other data point is actionable and defensible.
-
-[list]:
-
-
-[createdAt]: Mar 31, 2026, 2:29 PM
-[updatedAt]: Invalid Date

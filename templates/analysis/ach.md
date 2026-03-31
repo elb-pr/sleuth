@@ -1,4 +1,4 @@
-Analysis of Competing Hypotheses (ACH) Master Template
+# Analysis of Competing Hypotheses (ACH) Master Template
 
 1. Methodological Framework and Strategic Intent
 
