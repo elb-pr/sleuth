@@ -1,0 +1,24 @@
+// Cloudflare Worker — claude-sleuth-db
+// Investigation persistence MCP server with D1.
+// Transport: MCP Streamable HTTP on POST /mcp
+//
+// Setup:
+//   1. Run: wrangler d1 create sleuth-db
+//   2. Paste the database_id below
+//   3. Run: wrangler d1 execute sleuth-db --file=schema.sql
+//   4. Run: wrangler deploy
+{
+  "name": "claude-sleuth-db",
+  "main": "worker.js",
+  "compatibility_date": "2025-03-07",
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "sleuth-db",
+      "database_id": "<YOUR_DATABASE_ID>"
+    }
+  ]
+}

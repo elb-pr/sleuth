@@ -1,0 +1,47 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    name: Create GitHub Release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract version from tag
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+
+      - name: Extract changelog entry for this version
+        id: changelog
+        run: |
+          VERSION_BARE=$(echo "${{ steps.version.outputs.VERSION }}" | sed 's/^v//')
+          NOTES=$(awk "/^## \[${VERSION_BARE}\]/,/^## \[/" CHANGELOG.md | head -n -1 | tail -n +2)
+          echo "NOTES<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$NOTES" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Bundle skill folder
+        run: |
+          cd skills
+          zip -r ../claude-sleuth-${{ steps.version.outputs.VERSION }}.zip claude-sleuth/
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.VERSION }}
+          name: "Claude Sleuth ${{ steps.version.outputs.VERSION }}"
+          body: ${{ steps.changelog.outputs.NOTES }}
+          draft: false
+          prerelease: ${{ contains(steps.version.outputs.VERSION, '-') }}
+          files: claude-sleuth-${{ steps.version.outputs.VERSION }}.zip

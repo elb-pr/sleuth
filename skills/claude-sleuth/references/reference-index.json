@@ -1,0 +1,59 @@
+{
+  "pipeline": {
+    "description": "6-phase investigative workflow. Each phase maps to a folder and one or more templates.",
+    "phases": [
+      {
+        "phase": 1,
+        "folder": "oppstrat",
+        "title": "Operational Direction & Strategic Foundation",
+        "file": "direction-foundation.md",
+        "templates_used": ["research/case-decision-log.md", "research/investigation-strategy.md"],
+        "intelligence_cycle_stage": "Direction"
+      },
+      {
+        "phase": 2,
+        "folder": "intelepi",
+        "title": "Intelligence Collection & Epistemic Filtering",
+        "file": "collection-filtering.md",
+        "templates_used": ["research/source-grading.md", "database/task-log.md", "database/evidence-register.md"],
+        "intelligence_cycle_stage": "Collection"
+      },
+      {
+        "phase": 3,
+        "folder": "colent",
+        "title": "Collation & Entity Resolution",
+        "file": "resolution.md",
+        "templates_used": ["analysis/pole.md", "database/entity-register.md", "database/subject-profiles.md", "research/family-network-research.md", "research/cultural-context.md"],
+        "intelligence_cycle_stage": "Processing"
+      },
+      {
+        "phase": 4,
+        "folder": "chronrel",
+        "title": "Chronological & Relational Processing",
+        "file": "process.md",
+        "templates_used": ["analysis/chronological-matrix.md", "analysis/network-architecture.md", "analysis/verification.md", "analysis/morphological.md"],
+        "intelligence_cycle_stage": "Processing"
+      },
+      {
+        "phase": 5,
+        "folder": "hypcog",
+        "title": "Hypothesis Reasoning & Cognitive De-biasing",
+        "file": "reason-debias.md",
+        "templates_used": ["analysis/ach.md"],
+        "intelligence_cycle_stage": "Analysis"
+      },
+      {
+        "phase": 6,
+        "folder": "findis",
+        "title": "Final Reporting & Dissemination",
+        "file": "report-disseminate.md",
+        "templates_used": ["working/briefing.md", "working/case-summary.md", "working/findings-memo.md", "working/nim.md", "working/report.md"],
+        "intelligence_cycle_stage": "Dissemination"
+      }
+    ]
+  },
+  "root_documents": {
+    "guidance.md": "15-step investigation workflow mapping phases to templates",
+    "tooling.md": "150+ OSINT tools and data sources inventory across nine investigation domains"
+  }
+}

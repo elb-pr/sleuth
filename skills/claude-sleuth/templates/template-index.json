@@ -1,0 +1,148 @@
+{
+  "research": {
+    "description": "Initial scoping, justification, and strategic planning. Ensures proportionality and legal compliance.",
+    "templates": [
+      {
+        "file": "case-decision-log.md",
+        "title": "Case Decision & Collection Log",
+        "purpose": "Define operational goals, identify knowledge gaps, output an Intelligence Collection Plan",
+        "frameworks": ["STEEPLES", "PLAN", "NDM", "Admiralty 6x6"]
+      },
+      {
+        "file": "investigation-strategy.md",
+        "title": "Investigation Strategy & Intelligence Requirement Plan",
+        "purpose": "Define intelligence requirements, collection strategies, priority lines of enquiry, resource allocation",
+        "frameworks": ["POLE", "ICD 203", "Admiralty 6x6", "GPS"]
+      },
+      {
+        "file": "source-grading.md",
+        "title": "Source & Credibility Grader",
+        "purpose": "Filter raw data entering the intelligence cycle using Admiralty 6x6 grading",
+        "frameworks": ["Admiralty 6x6", "STANAG 2511"]
+      },
+      {
+        "file": "family-network-research.md",
+        "title": "Genealogical & Family Network Research",
+        "purpose": "Deep research enforcing the Genealogical Proof Standard for family/associate networks",
+        "frameworks": ["GPS", "FAN Principle", "POLE", "Admiralty 6x6"]
+      },
+      {
+        "file": "cultural-context.md",
+        "title": "Cultural Context & Ethnographic Background Assessment",
+        "purpose": "Rapid ethnographic assessment mapping identity structures, power hierarchies, and community norms",
+        "frameworks": ["Berkeley Protocol"]
+      }
+    ]
+  },
+  "analysis": {
+    "description": "Processing tools that synthesise structured data into patterns, identify gaps, and test competing theories.",
+    "templates": [
+      {
+        "file": "ach.md",
+        "title": "Analysis of Competing Hypotheses (ACH)",
+        "purpose": "Test evidence against mutually exclusive hypotheses using the Inconsistency Principle",
+        "frameworks": ["ACH", "ICD 203"]
+      },
+      {
+        "file": "chronological-matrix.md",
+        "title": "Chronological Matrix",
+        "purpose": "Normalise disjointed events into UTC-standardised timeline, highlight temporal gaps",
+        "frameworks": ["ICD 203"]
+      },
+      {
+        "file": "network-architecture.md",
+        "title": "Network Architecture (Edge List)",
+        "purpose": "Relationship mapping outputting structured tabular data for link analysis",
+        "frameworks": ["SNA", "POLE"]
+      },
+      {
+        "file": "pole.md",
+        "title": "Entity Extraction & Profiling (POLE)",
+        "purpose": "Parse raw text into structured records using POLE schemas",
+        "frameworks": ["POLE", "NIEM"]
+      },
+      {
+        "file": "verification.md",
+        "title": "Content Verification Report",
+        "purpose": "Authenticate photos/videos via reverse image search, geolocation, chronolocation",
+        "frameworks": ["Berkeley Protocol"]
+      },
+      {
+        "file": "morphological.md",
+        "title": "Economic History & Urban Morphological Analysis",
+        "purpose": "Analyse site/regional economic evolution using urban morphology and spatial econometrics",
+        "frameworks": ["HER", "GPS"]
+      }
+    ]
+  },
+  "database": {
+    "description": "Central repository templates ensuring every piece of data maintains strict provenance and lineage.",
+    "templates": [
+      {
+        "file": "entity-register.md",
+        "title": "Entity Register",
+        "purpose": "Structured database of all persons, organisations, and locations with universal metadata",
+        "frameworks": ["POLE"]
+      },
+      {
+        "file": "task-log.md",
+        "title": "Task Log & Actions Register",
+        "purpose": "Continuous log of every investigative enquiry, assignment, and outcome including negative results",
+        "frameworks": ["APP"]
+      },
+      {
+        "file": "evidence-register.md",
+        "title": "Evidence & Material Register",
+        "purpose": "Register for captured evidence with cryptographic hashes, capture details, and storage locations",
+        "frameworks": ["Chain of Custody"]
+      },
+      {
+        "file": "subject-profiles.md",
+        "title": "Subject & Corporate Profiles",
+        "purpose": "Consolidated findings on specific targets: identity, employment, digital footprints, ownership chains",
+        "frameworks": ["POLE", "ICD 203"]
+      }
+    ]
+  },
+  "working": {
+    "description": "Final delivery mechanism and live working documents for rapid consumption by decision-makers.",
+    "templates": [
+      {
+        "file": "briefing.md",
+        "title": "Analytical Briefing (ICD 203)",
+        "purpose": "BLUF-structured report strictly separating facts, assumptions, and judgements",
+        "frameworks": ["ICD 203"]
+      },
+      {
+        "file": "case-summary.md",
+        "title": "Case Summary Record",
+        "purpose": "High-level administrative overview of case reference, scope, and status",
+        "frameworks": ["APP"]
+      },
+      {
+        "file": "findings-memo.md",
+        "title": "Findings Memo",
+        "purpose": "Practitioner format summarising confirmed findings, unverified leads, and scope limitations",
+        "frameworks": ["ICD 203"]
+      },
+      {
+        "file": "nim.md",
+        "title": "Strategic & Tactical Assessment (NIM)",
+        "purpose": "Law enforcement templates for force strategy or operational tasking based on current threats",
+        "frameworks": ["NIM", "APP"]
+      },
+      {
+        "file": "report.md",
+        "title": "Account Attribution Report",
+        "purpose": "SOCMINT brief profiling a social media account with evidence supporting real-world identity attribution",
+        "frameworks": ["Berkeley Protocol"]
+      },
+      {
+        "file": "investigation-notebook.md",
+        "title": "Investigation Notebook",
+        "purpose": "Live workspace maintained throughout investigation with structured sections and free-form notepad",
+        "frameworks": []
+      }
+    ]
+  }
+}

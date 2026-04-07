@@ -1,0 +1,13 @@
+# claude-sleuth core dependencies
+# For optional modules, use: pip install .[geo,graph,sanctions] or pip install .[all]
+requests>=2.31
+httpx>=0.25
+aiohttp>=3.9
+beautifulsoup4>=4.12
+lxml>=5.0
+pandas>=2.1
+numpy>=1.26
+rich>=13.0
+tqdm>=4.66
+python-dateutil>=2.8
+pytz>=2024.1

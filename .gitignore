@@ -1,0 +1,36 @@
+# Working outputs
+outputs/
+
+# Sanctions data (large, downloaded on demand)
+assets/sanctions/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Playwright browsers
+playwright-browsers/
+.sleuth-progress.json
+lib/
