@@ -1,4 +1,4 @@
-<h1 align="center">Claude Sleuth</h1>
+<h1 align="center">Sleuth</h1>
 
 <p align="center"><strong> Perfect for Journalists, Researchers & Private Investigators.</strong></p>
 
